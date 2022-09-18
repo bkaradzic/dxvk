@@ -4,7 +4,18 @@
 #include "../util/rc/util_rc_ptr.h"
 
 #define VK_USE_PLATFORM_WIN32_KHR 1
+#define VK_USE_PLATFORM_XLIB_KHR 1
+#define VK_USE_PLATFORM_XCB_KHR 1
 #include <vulkan/vulkan.h>
+#ifdef None // will include X11 which #defines None... 
+#undef None
+#undef False
+#undef Tristate
+#undef True
+#undef Bool
+#undef Status
+#undef Always
+#endif
 
 #define VULKAN_FN(name) \
   ::PFN_ ## name name = reinterpret_cast<::PFN_ ## name>(sym(#name))

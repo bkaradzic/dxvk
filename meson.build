@@ -110,8 +110,8 @@ else
     './include/native/directx'
   ]
 
-  dxvk_wsi = 'sdl2'
-  compiler_args += ['-DDXVK_WSI_SDL2']
+  dxvk_wsi = 'x11'
+  compiler_args += ['-DDXVK_WSI_X11']
 endif
 
 dxvk_include_path = include_directories(dxvk_include_dirs)
